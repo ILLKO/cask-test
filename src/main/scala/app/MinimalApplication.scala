@@ -6,6 +6,9 @@ object MinimalApplication extends cask.MainRoutes {
     "<!doctype html>" + html.hello("Hello World")
   }
 
+  @cask.staticResources("/js")
+  def staticFileRoutes() = "js"
+
   @cask.post("/do-thing")
   def doThing(request: cask.Request) = {
     new String(request.readAllBytes()).reverse
